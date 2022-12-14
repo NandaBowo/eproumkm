@@ -38,6 +38,11 @@ $routes->set404Override();
 $routes->get('/', 'Home::index');
 $routes->get('/auth/login', "Auth::login");
 $routes->get('/auth/register', "Auth::register");
+$routes->get('/sales', "Home::sales");
+$routes->get('/stock', "Home::stock");
+$routes->get('/stock/form', "Home::stockForm");
+$routes->get('/rekap', "Home::rekap");
+$routes->get('/kasir', "Home::kasir");
 
 /*
  * --------------------------------------------------------------------
