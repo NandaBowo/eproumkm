@@ -9,16 +9,16 @@
 <body class="text-center">
 
     <main class="form-signin w-100 m-auto">
-        <form>
+        <form action="/auth/log" method="POST">
             <img class="mb-4" src="https://th.bing.com/th/id/OIP.mcA9sspRyYfjA0_VfstFKQHaHa?pid=ImgDet&rs=1" alt="" width="72" height="57">
             <h1 class="h3 mb-3 fw-normal">Silahkan Login</h1>
 
             <div class="form-floating">
-                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                <input type="email" class="form-control" id="floatingInput" name="email" placeholder="name@example.com">
                 <label for="floatingInput">Email</label>
             </div>
             <div class="form-floating">
-                <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                <input type="password" class="form-control" id="floatingPassword" name="pass" placeholder="Password">
                 <label for="floatingPassword">Password</label>
             </div>
 
