@@ -44,7 +44,10 @@ $routes->get('/auth/register', "Auth::register");
 $routes->post('/auth/regis', "Auth::regis");
 
 $routes->get('/sales', "Home::sales");
-$routes->get('/stock', "Home::stock");
+
+$routes->get('/stock', "Stock::index");
+$routes->post('/stock/insert', "Stock::insert");
+
 $routes->get('/stock/form', "Home::stockForm");
 $routes->get('/rekap', "Home::rekap");
 $routes->get('/kasir', "Home::kasir");
