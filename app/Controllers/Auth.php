@@ -3,13 +3,17 @@
 namespace App\Controllers;
 
 use App\Models\UserModel;
+use CodeIgniter\Session\Session;
 
 class Auth extends BaseController
 {
     protected $userModel;
+    private $session;
 
     public function __construct() {
+        helper(['form', 'url', 'session']);
         $this->userModel = new UserModel();
+        $this->session = session();
         
     }
 
@@ -26,11 +30,27 @@ class Auth extends BaseController
         $email = $this->request->getVar('email');
         $pass = $this->request->getVar("pass");
 
-        if($this->userModel->where('email', $email)->find()){
-            $data = $this->userModel->where('email', $email)->find();
+        $user = $this->userModel->where('email', $email)->first();
+
+        // dd($user);
+
+        if($user){
+            $data = $this->userModel->where('email', $email)->first();
             
-            if($data[0]['password'] == $pass) {
-                return view('user/dash', $data[0]);
+            if($data['password'] == $pass) {
+
+                $sessionData = [
+                    "id" => $data["id"],
+                    "name" => $data["name"],
+                    "email" => $data["email"],
+                    "loggedIn" => true
+                ];
+
+                $this->session->set($sessionData);
+
+                // dd($this->session->get("loggedIn"));
+
+                return view('user/dash', $data);
             } else {
                 return false;
             }
