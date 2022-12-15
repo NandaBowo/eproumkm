@@ -1,10 +1,8 @@
 <?= $this->extend('layouts/template'); ?>
 
-<?= $this->section('styles'); ?>
-<link rel="stylesheet" href="/css/sidebar.css">
-<?= $this->endSection(); ?>
-
 <?= $this->section('content'); ?>
+<?= $this->include('/layouts/navbar'); ?>
+
 <div class="container">
     <div class="d-flex">
         <?= $this->include('/layouts/sidebar'); ?>
