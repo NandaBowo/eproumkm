@@ -14,7 +14,7 @@
             <h1 class="h3 mb-3 fw-normal">Mendaftar Akun</h1>
 
             <div class="form-floating">
-                <input type="text" class="form-control" name="name" id="floatingInput"  placeholder="name@example.com">
+                <input type="text" class="form-control" name="name" id="floatingInput" placeholder="name@example.com">
                 <label for="floatingInput">Nama Lengkap</label>
             </div>
             <div class="form-floating">
@@ -38,8 +38,12 @@
                 <label for="floatingPassword">Ketik ulang password</label>
             </div>
 
-            <button class="w-100 btn btn-lg btn-primary" type="submit">Register</button>
-            <p class="mt-5 mb-3 text-muted">&copy; 2017–2022</p>
+            <button class="w-100 btn btn-lg btn-primary mb-3" type="submit">Register</button>
+
+            <a href="/">Kembali ke beranda</a>
+            <p class="mt-3">Sudah memiliki akun? <a href="/auth/login">Masuk sekarang</a></p>
+
+            <p class="mt-5 mb-3 text-muted">&copy; E-Promkm UNUSA</p>
         </form>
     </main>
 

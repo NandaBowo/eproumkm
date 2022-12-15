@@ -22,7 +22,11 @@
                 <label for="floatingPassword">Password</label>
             </div>
 
-            <button class="w-100 btn btn-lg btn-primary" type="submit">Login</button>
+            <button class="w-100 btn btn-lg btn-primary mb-3" type="submit">Login</button>
+
+            <a href="/">Kembali ke beranda</a>
+            <p class="mt-3">Belum memiliki akun? <a href="/auth/register">Daftar sekarang</a></p>
+
             <p class="mt-5 mb-3 text-muted">&copy; E-Promkm UNUSA</p>
         </form>
     </main>
