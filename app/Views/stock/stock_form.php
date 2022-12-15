@@ -11,7 +11,7 @@
 
             <form action="/stock/insert" method="POST">
                 <div class="mb-3">
-                    <input type="hidden" class="form-control" id="idUser" name="idUser" aria-describedby="emailHelp">
+                    <input type="hidden" class="form-control" id="idUser" name="idUser" aria-describedby="emailHelp" value="<?= session()->get("id"); ?>">
                 </div>
                 <div class="mb-3">
                     <label for="nameBarang" class="form-label">Nama Barang</label>

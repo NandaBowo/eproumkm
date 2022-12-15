@@ -44,4 +44,14 @@ class Stock extends BaseController
         $this->stock->save($data);
         return redirect()->to('/stock');
     }
+
+    public function addView()
+    {
+        $data = [
+            "title" => "Halaman Tambah Stok",
+            "active" => "active"
+        ];
+
+        return view('/stock/stock_form', $data);
+    }
 }

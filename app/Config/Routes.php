@@ -43,17 +43,17 @@ $routes->post('/auth/log', "Auth::log");
 $routes->get('/auth/register', "Auth::register");
 $routes->post('/auth/regis', "Auth::regis");
 
-$routes->get('/sales', "Home::sales");
+$routes->get('/sales', "Sales::index");
 
 $routes->get('/stock', "Stock::index");
 $routes->post('/stock/insert', "Stock::insert");
 
-$routes->get('/stock/form', "Home::stockForm");
-$routes->get('/stock/form/edit', "Home::stockFormEdit");
+$routes->get('/stock/form', "Stock::addView");
+$routes->get('/stock/form/edit', "Stock::stockFormEdit");
 
-$routes->get('/rekap', "Home::rekap");
+$routes->get('/rekap', "Rekap::index");
 
-$routes->get('/kasir', "Home::kasir");
+$routes->get('/kasir', "Kasir::index");
 
 
 /*

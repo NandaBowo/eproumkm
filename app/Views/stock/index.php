@@ -27,7 +27,7 @@
                 <tbody>
                     <?php foreach ($dataQuery as $data) : ?>
                         <tr>
-                            <th scope="row"><?= $data['id_barang']; ?></th>
+                            <th scope="row"><?= $data['id_user']; ?></th>
                             <td><?= $data['name']; ?></td>
                             <td><?= $data['harga_beli']; ?></td>
                             <td><?= $data['harga_jual']; ?></td>
