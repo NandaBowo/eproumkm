@@ -10,7 +10,7 @@
             <h1 class="mb-3">Stok Barang</h1>
 
             <div class="d-inline float-end mb-3">
-                <a class="btn btn-primary" href="#">Edit</a>
+                <a class="btn btn-primary" href="/stock/form/edit">Edit</a>
                 <a class="btn btn-primary" href="/stock/form">Tambah Data</a>
             </div>
 

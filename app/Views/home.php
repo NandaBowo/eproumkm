@@ -7,7 +7,6 @@
     <div class="d-flex">
         <?= $this->include('/layouts/sidebar'); ?>
         <div class="p-2">
-            <?php d(session()->get("name")); ?>
             <div class="row justify-content-around">
                 <div class="col-md-4">
                     <div class="card">
