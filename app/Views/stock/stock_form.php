@@ -30,6 +30,8 @@
                     <label for="hargaGrosir" class="form-label">Harga Grosir</label>
                     <input type="number" class="form-control" id="hargaGrosir" name="hargaGrosir" aria-describedby="emailHelp">
                 </div>
+
+                <button type="submit" class="btn btn-primary">Tambah Barang</button>
             </form>
         </div>
     </div>
