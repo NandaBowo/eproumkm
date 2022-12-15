@@ -13,13 +13,20 @@ class Stock extends BaseController
         $this->stock = new StockModel();
     }
 
-    public function index() {
+    public function index()
+    {
+        $data = [
+            "title" => "Halaman Stock",
+            "active" => "active",
+            "dataQuery" => $this->stock->where("id_barang", session()->get("id"))->find()
+        ];
 
-        $data = $this->stock->findAll();
+        // $dataQuery = $this->stock->where("id_barang", session()->get("id"))->find();
 
+        return view("/stock/index", $data);
     }
 
-    public function insert() {
-        
+    public function insert()
+    {
     }
 }

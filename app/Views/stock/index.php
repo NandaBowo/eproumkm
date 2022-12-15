@@ -17,38 +17,23 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th scope="col">Id Barang</th>
+                        <th scope="col">ID User</th>
                         <th scope="col">Nama Barang</th>
                         <th scope="col">Harga Beli</th>
                         <th scope="col">Harga Jual</th>
-                        <th scope="col">Harga Grosir</th>
                         <th scope="col">Barcode</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        <td>@mdo</td>
-                        <td>@mdo</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                        <td>@fat</td>
-                        <td>@fat</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td colspan="2">Larry the Bird</td>
-                        <td>@twitter</td>
-                        <td>@twitter</td>
-                        <td>@twitter</td>
-                    </tr>
+                    <?php foreach ($dataQuery as $data) : ?>
+                        <tr>
+                            <th scope="row"><?= $data['id_barang']; ?></th>
+                            <td><?= $data['name']; ?></td>
+                            <td><?= $data['harga_beli']; ?></td>
+                            <td><?= $data['harga_jual']; ?></td>
+                            <td><?= $data['barcode']; ?></td>
+                        </tr>
+                    <?php endforeach; ?>
                 </tbody>
             </table>
         </div>
