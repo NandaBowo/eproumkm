@@ -23,8 +23,17 @@
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-secondary" type="submit">Search</button>
             </form>
-            <a href="/auth/login" class="btn btn-primary ms-4 my-3">Login</a>
-            <a href="/auth/register" class="btn btn-primary ms-2 my-3">Register</a>
+
+            <?php if (session()->get("name") == null) : ?>
+                <a href="/auth/login" class="btn btn-primary ms-4 my-3">Login</a>
+                <a href="/auth/register" class="btn btn-primary ms-2 my-3">Register</a>
+            <?php else : ?>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <p class="nav-link active mt-3 ms-4">Halo, <?= session()->get("name"); ?>!</p>
+                    </li>
+                </ul>
+            <?php endif; ?>
         </div>
     </div>
 </nav>

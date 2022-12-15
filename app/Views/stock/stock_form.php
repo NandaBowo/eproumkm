@@ -11,8 +11,7 @@
 
             <form action="/stock/insert" method="POST">
                 <div class="mb-3">
-                    <label for="idBarang" class="form-label">Id Barang</label>
-                    <input type="text" class="form-control" id="idBarang" name="idBarang" aria-describedby="emailHelp">
+                    <input type="hidden" class="form-control" id="idUser" name="idUser" aria-describedby="emailHelp">
                 </div>
                 <div class="mb-3">
                     <label for="nameBarang" class="form-label">Nama Barang</label>
@@ -27,8 +26,12 @@
                     <input type="number" class="form-control" id="hargaJual" name="hargaJual" aria-describedby="emailHelp">
                 </div>
                 <div class="mb-3">
-                    <label for="hargaGrosir" class="form-label">Barcode</label>
-                    <input type="number" class="form-control" id="hargaGrosir" name="barcode" aria-describedby="emailHelp">
+                    <label for="barcode" class="form-label">Barcode</label>
+                    <input type="text" class="form-control" id="barcode" name="barcode" aria-describedby="emailHelp">
+                </div>
+                <div class="mb-3">
+                    <label for="stock" class="form-label">Stock</label>
+                    <input type="number" class="form-control" id="stock" name="stock" aria-describedby="emailHelp">
                 </div>
 
                 <button type="submit" class="btn btn-primary">Tambah Barang</button>

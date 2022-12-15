@@ -54,6 +54,16 @@ class Home extends BaseController
         return view('stock/stock_form', $data);
     }
 
+    public function stockFormEdit()
+    {
+        $data = [
+            "title" => "Halaman Edit Barang",
+            "active" => "active"
+        ];
+
+        return view('stock/stock_form_edit', $data);
+    }
+
     public function rekap()
     {
         $data = [

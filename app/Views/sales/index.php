@@ -7,10 +7,18 @@
     <div class="d-flex">
         <?= $this->include('/layouts/sidebar'); ?>
         <div class="p-2  w-100">
-            <div class="mb-3">
-                <label for="tanggal" class="form-label">Tanggal : </label>
-                <input type="text" class="form-control" id="tanggal" placeholder="">
-            </div>
+            <form class="row row-cols-lg-auto g-3 align-items-center mb-3">
+                <div class="col-12">
+                    <label class="visually-hidden" for="tanggal">Tanggal</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="tanggal" name="tanggal" placeholder="Tanggal">
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary">Cari</button>
+                </div>
+            </form>
 
             <table class="table table-bordered table-hover text-center">
                 <thead>

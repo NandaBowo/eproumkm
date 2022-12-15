@@ -3,10 +3,12 @@
         <ul class="list-group list-group-flush">
             <a class="list-group-item" href="/">Beranda</a>
             <a class="list-group-item" href="#">Categories</a>
-            <a class="list-group-item" href="/kasir">Kasir</a>
-            <a class="list-group-item" href="/sales">Sales</a>
-            <a class="list-group-item" href="/stock">Stok Barang</a>
-            <a class="list-group-item" href="/rekap">Rekap Penjualan</a>
+            <?php if ((session()->get("name") != null)) : ?>
+                <a class="list-group-item" href="/kasir">Kasir</a>
+                <a class="list-group-item" href="/sales">Sales</a>
+                <a class="list-group-item" href="/stock">Stok Barang</a>
+                <a class="list-group-item" href="/rekap">Rekap Penjualan</a>
+            <?php endif; ?>
         </ul>
     </div>
 </div>
