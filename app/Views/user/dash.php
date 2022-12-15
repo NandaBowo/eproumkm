@@ -1,4 +1,6 @@
 <?php
 $data = session()->get("name");
 
-echo "selamat datang " . $data;
+// dd(session()->get("loggedIn"));
+
+echo "selamat datang" . $name;

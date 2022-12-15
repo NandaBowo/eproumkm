@@ -9,13 +9,13 @@
         <div class="p-2 w-100">
             <h1 class="mb-3">Tambah Barang</h1>
 
-            <form>
+            <form action="/stock/insert" method="POST">
                 <div class="mb-3">
                     <input type="hidden" class="form-control" id="idUser" name="idUser" aria-describedby="emailHelp">
                 </div>
                 <div class="mb-3">
                     <label for="nameBarang" class="form-label">Nama Barang</label>
-                    <input type="text" class="form-control" id="nameBarang" name="namaBarang" aria-describedby="emailHelp">
+                    <input type="text" class="form-control" id="nameBarang" name="name" aria-describedby="emailHelp">
                 </div>
                 <div class="mb-3">
                     <label for="hargaBeli" class="form-label">Harga Beli</label>
