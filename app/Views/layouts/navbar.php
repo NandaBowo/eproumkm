@@ -30,9 +30,13 @@
             <?php else : ?>
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <p class="nav-link active mt-3 ms-4">Halo, <?= session()->get("name"); ?>!</p>
+                        <p class="nav-link active mt-3 mx-4">Halo, <?= session()->get("name"); ?>!</p>
                     </li>
                 </ul>
+
+                <form action="/auth/logout" method="post">
+                    <button type="submit" class="btn btn-danger">Logout</button>
+                </form>
             <?php endif; ?>
         </div>
     </div>

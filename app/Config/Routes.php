@@ -43,6 +43,8 @@ $routes->post('/auth/log', "Auth::log");
 $routes->get('/auth/register', "Auth::register");
 $routes->post('/auth/regis', "Auth::regis");
 
+$routes->post('/auth/logout', "Auth::logout");
+
 $routes->get('/sales', "Sales::index");
 
 $routes->get('/stock', "Stock::index");

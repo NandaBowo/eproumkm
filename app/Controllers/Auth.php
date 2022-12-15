@@ -98,4 +98,14 @@ class Auth extends BaseController
             return view('auth/register', $data);
         }
     }
+
+    public function logout()
+    {
+        session()->remove("id");
+        session()->remove("name");
+        session()->remove("email");
+        session()->remove("loggedIn");
+
+        return redirect()->to("/");
+    }
 }

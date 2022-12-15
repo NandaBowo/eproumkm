@@ -11,8 +11,7 @@
 
             <form>
                 <div class="mb-3">
-                    <label for="idBarang" class="form-label">Id Barang</label>
-                    <input type="text" class="form-control" id="idBarang" name="idBarang" aria-describedby="emailHelp" value="#">
+                    <input type="hidden" class="form-control" id="idUser" name="idUser" aria-describedby="emailHelp" value="#">
                 </div>
                 <div class="mb-3">
                     <label for="nameBarang" class="form-label">Nama Barang</label>
@@ -27,8 +26,12 @@
                     <input type="number" class="form-control" id="hargaJual" name="hargaJual" aria-describedby="emailHelp" value="0">
                 </div>
                 <div class="mb-3">
-                    <label for="hargaGrosir" class="form-label">Harga Grosir</label>
-                    <input type="number" class="form-control" id="hargaGrosir" name="hargaGrosir" aria-describedby="emailHelp" value="0">
+                    <label for="barcode" class="form-label">Barcode</label>
+                    <input type="number" class="form-control" id="barcode" name="barcode" aria-describedby="emailHelp" value="0">
+                </div>
+                <div class="mb-3">
+                    <label for="stock" class="form-label">Stock</label>
+                    <input type="number" class="form-control" id="stock" name="stock" aria-describedby="emailHelp" value="0">
                 </div>
 
                 <button type="submit" class="btn btn-primary">Edit Barang</button>
