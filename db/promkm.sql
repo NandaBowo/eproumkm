@@ -23,7 +23,8 @@ DROP TABLE IF EXISTS `stock`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `stock` (
-  `id_barang` int NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
+  `id_barang` int DEFAULT NULL,
   `name` varchar(255) NOT NULL,
   `harga_beli` int NOT NULL,
   `harga_jual` int NOT NULL,
@@ -31,7 +32,8 @@ CREATE TABLE `stock` (
   `stock` int DEFAULT NULL,
   `create_at` timestamp NULL DEFAULT NULL,
   `update_at` datetime DEFAULT NULL,
-  PRIMARY KEY (`id_barang`),
+  PRIMARY KEY (`id`),
+  KEY `fk_s_u` (`id_barang`),
   CONSTRAINT `fk_s_u` FOREIGN KEY (`id_barang`) REFERENCES `users` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -42,7 +44,7 @@ CREATE TABLE `stock` (
 
 LOCK TABLES `stock` WRITE;
 /*!40000 ALTER TABLE `stock` DISABLE KEYS */;
-INSERT INTO `stock` VALUES (1,'sdsadasd',1000,10000,'34222',12,NULL,NULL),(2,'Nasi Bakar',10000,10000,'2332',30,NULL,NULL);
+INSERT INTO `stock` VALUES (1,NULL,'sdsadasd',1000,10000,'34222',12,NULL,NULL),(2,NULL,'Nasi Bakar',10000,10000,'2332',30,NULL,NULL);
 /*!40000 ALTER TABLE `stock` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -62,7 +64,7 @@ CREATE TABLE `users` (
   `umkm` varchar(100) NOT NULL,
   `sosmed` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -71,7 +73,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'galeh','kigaleh321@gmail.com','','123','nasi bakar',NULL),(2,'galeh','kigaleh321@gmail.com','088888888888','123','nasi bakar',NULL);
+INSERT INTO `users` VALUES (1,'galeh','kigaleh321@gmail.com','','123','nasi bakar',NULL),(2,'galeh','kigaleh321@gmail.com','088888888888','123','nasi bakar',NULL),(3,'Ariya','3130021003@student.unusa.ac.id','32423424234','','nasi',NULL),(4,'Nanda','3130021007@student.unusa.ac.id','2323232323','','nasi',NULL),(5,'ain','3130021001@student.unusa.ac.id','2323232323','234','nasi kuning',NULL),(6,'ainul','3130021002@student.unusa.ac.id','2323232323','2456','kuning',NULL),(7,'sdsd','s@gmail.com','434','','dsdsd',NULL),(8,'india','b@gmail.com','23232323','54321','jasuke',NULL);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -84,4 +86,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-12-15  1:35:15
+-- Dump completed on 2022-12-15  9:06:40
