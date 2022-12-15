@@ -19,7 +19,7 @@ class Home extends BaseController
         $data = [
             "title" => "Selamat datang di E-Promkm UNUSA",
             "active" => "active",
-            "dataQuery" => $this->stock->where("id_barang", session()->get("id"))->find()
+            "dataQuery" => $this->stock->where("id_user", session()->get("id"))->find()
         ];
 
         return view('home', $data);

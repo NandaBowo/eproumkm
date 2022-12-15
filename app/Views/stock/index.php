@@ -10,28 +10,34 @@
             <h1 class="mb-3">Stok Barang</h1>
 
             <div class="d-inline float-end mb-3">
-                <a class="btn btn-primary" href="/stock/form/edit">Edit</a>
                 <a class="btn btn-primary" href="/stock/form">Tambah Data</a>
             </div>
 
             <table class="table">
                 <thead>
                     <tr>
-                        <th scope="col">ID User</th>
+                        <th scope="col">No.</th>
                         <th scope="col">Nama Barang</th>
                         <th scope="col">Harga Beli</th>
                         <th scope="col">Harga Jual</th>
                         <th scope="col">Barcode</th>
+                        <th scope="col">Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
+                    <?php $i = 1; ?>
                     <?php foreach ($dataQuery as $data) : ?>
                         <tr>
-                            <th scope="row"><?= $data['id_user']; ?></th>
+                            <th scope="row"><?= $i++; ?></th>
                             <td><?= $data['name']; ?></td>
                             <td><?= $data['harga_beli']; ?></td>
                             <td><?= $data['harga_jual']; ?></td>
                             <td><?= $data['barcode']; ?></td>
+                            <form action="/stock/form/edit/<?= session()->get("id"); ?>" method="POST">
+                                <td>
+                                    <button type="submit" class="btn btn-primary">Edit</button>
+                                </td>
+                            </form>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>

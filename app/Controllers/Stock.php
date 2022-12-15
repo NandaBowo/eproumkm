@@ -44,7 +44,7 @@ class Stock extends BaseController
 
         $this->stock->save($dataInput);
 
-        
+
 
         return redirect()->to('/stock');
     }
@@ -57,5 +57,15 @@ class Stock extends BaseController
         ];
 
         return view('/stock/stock_form', $data);
+    }
+
+    public function stockFormEdit()
+    {
+        $data = [
+            "title" => "Halaman Tambah Stok",
+            "active" => "active"
+        ];
+
+        return view('/stock/stock_form_edit', $data);
     }
 }

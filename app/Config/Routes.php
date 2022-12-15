@@ -49,7 +49,7 @@ $routes->get('/stock', "Stock::index");
 $routes->post('/stock/insert', "Stock::insert");
 
 $routes->get('/stock/form', "Stock::addView");
-$routes->get('/stock/form/edit', "Stock::stockFormEdit");
+$routes->post('/stock/form/edit/(:num)', "Stock::stockFormEdit/$1");
 
 $routes->get('/rekap', "Rekap::index");
 
