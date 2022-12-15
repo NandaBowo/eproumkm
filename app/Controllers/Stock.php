@@ -18,7 +18,7 @@ class Stock extends BaseController
         $data = [
             "title" => "Halaman Stock",
             "active" => "active",
-            "dataQuery" => $this->stock->where("id_barang", session()->get("id"))->find()
+            "dataQuery" => $this->stock->where("id_user", session()->get("id"))->find()
         ];
 
         // $dataQuery = $this->stock->where("id_barang", session()->get("id"))->find();
@@ -28,12 +28,13 @@ class Stock extends BaseController
 
     public function insert()
     {
-        $data = [
-            "id_user" => $this->request->getVar("idBarang"),
+        $dataInput = [
+            "id_user" => $this->request->getVar("idUser"),
             "name" => $this->request->getVar("name"),
             "harga_beli" => $this->request->getVar("hargaBeli"),
             "harga_jual" => $this->request->getVar("hargaJual"),
-            "barcode" => $this->request->getVar("barcode")
+            "barcode" => $this->request->getVar("barcode"),
+            "stock" => $this->request->getVar("stock")
         ];
         // $iduser = $this->request->getVar("idBarang");
         // $name = $this->request->getVar("name");
@@ -41,7 +42,10 @@ class Stock extends BaseController
         // $hargaJual = $this->request->getVar("hargaJual");
         // $hargaGrosir = $this->request->getVar("hargaGrosir");
 
-        $this->stock->save($data);
+        $this->stock->save($dataInput);
+
+        
+
         return redirect()->to('/stock');
     }
 }
