@@ -10,11 +10,11 @@ class Auth extends BaseController
     protected $userModel;
     private $session;
 
-    public function __construct() {
+    public function __construct()
+    {
         helper(['form', 'url', 'session']);
         $this->userModel = new UserModel();
         $this->session = session();
-        
     }
 
     public function login()
@@ -26,7 +26,8 @@ class Auth extends BaseController
         return view('auth/login', $data);
     }
 
-    public function log() {
+    public function log()
+    {
         $email = $this->request->getVar('email');
         $pass = $this->request->getVar("pass");
 
@@ -34,10 +35,10 @@ class Auth extends BaseController
 
         // dd($user);
 
-        if($user){
+        if ($user) {
             $data = $this->userModel->where('email', $email)->first();
-            
-            if($data['password'] == $pass) {
+
+            if ($data['password'] == $pass) {
 
                 $sessionData = [
                     "id" => $data["id"],
@@ -50,7 +51,7 @@ class Auth extends BaseController
 
                 // dd($this->session->get("loggedIn"));
 
-                return view('user/dash', $data);
+                return view('home', $data);
             } else {
                 return false;
             }
@@ -60,7 +61,7 @@ class Auth extends BaseController
     }
 
 
-// ======================================================================
+    // ======================================================================
 
     public function register()
     {
@@ -71,12 +72,13 @@ class Auth extends BaseController
         return view('auth/register', $data);
     }
 
-    public function regis() {
-        
+    public function regis()
+    {
+
         $pass1 = $this->request->getVar("pass1");
         $pass2 = $this->request->getVar("pass2");
 
-        if($pass1 == $pass2) {
+        if ($pass1 == $pass2) {
             $data = [
                 "name" => $this->request->getVar("name"),
                 "email" => $this->request->getVar("email"),
@@ -84,19 +86,16 @@ class Auth extends BaseController
                 "umkm" => $this->request->getVar("umkm"),
                 "password" => $this->request->getVar("pass1")
             ];
-            
-    
+
+
             $this->userModel->save($data);
             return redirect()->to('/auth/login');
         } else {
             $data = [
                 "title" => "Register Page"
             ];
-    
+
             return view('auth/register', $data);
         }
-
-        
-
     }
 }
