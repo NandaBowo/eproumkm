@@ -33,7 +33,8 @@
                             <td><?= $data['harga_beli']; ?></td>
                             <td><?= $data['harga_jual']; ?></td>
                             <td><?= $data['barcode']; ?></td>
-                            <form action="/stock/form/edit/<?= session()->get("id"); ?>" method="POST">
+                            <!--  -->
+                            <form action="/stock/form/edit/<?= $data["id"]; ?>" method="POST">
                                 <td>
                                     <button type="submit" class="btn btn-primary">Edit</button>
                                 </td>
