@@ -13,6 +13,12 @@
             <img class="mb-4" src="https://th.bing.com/th/id/OIP.mcA9sspRyYfjA0_VfstFKQHaHa?pid=ImgDet&rs=1" alt="" width="72" height="57">
             <h1 class="h3 mb-3 fw-normal">Silahkan Login</h1>
 
+            <?php if (session()->getFlashdata("error")) : ?>
+                <div class="alert alert-danger" role="alert">
+                    <?= session()->getFlashdata("error"); ?>
+                </div>
+            <?php endif; ?>
+
             <div class="form-floating">
                 <input type="email" class="form-control" id="floatingInput" name="email" placeholder="name@example.com">
                 <label for="floatingInput">Email</label>

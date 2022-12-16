@@ -14,27 +14,27 @@
             <h1 class="h3 mb-3 fw-normal">Mendaftar Akun</h1>
 
             <div class="form-floating">
-                <input type="text" class="form-control" name="name" id="floatingInput" placeholder="name@example.com">
+                <input type="text" class="form-control" name="name" id="floatingInput" placeholder="name@example.com" required>
                 <label for="floatingInput">Nama Lengkap</label>
             </div>
             <div class="form-floating">
-                <input type="email" class="form-control" id="floatingInput" name="email" placeholder="name@example.com">
+                <input type="email" class="form-control" id="floatingInput" name="email" placeholder="name@example.com" required>
                 <label for="floatingInput">Email</label>
             </div>
             <div class="form-floating">
-                <input type="text" class="form-control" id="floatingInput" name="hp" placeholder="name@example.com">
+                <input type="text" class="form-control" id="floatingInput" name="hp" placeholder="name@example.com" required>
                 <label for="floatingInput">No. HP</label>
             </div>
             <div class="form-floating">
-                <input type="text" class="form-control" id="floatingInput" name="umkm" placeholder="name@example.com">
+                <input type="text" class="form-control" id="floatingInput" name="umkm" placeholder="name@example.com" required>
                 <label for="floatingInput">Nama UMKM</label>
             </div>
             <div class="form-floating">
-                <input type="password" class="form-control" id="floatingPassword" name="pass1" placeholder="Password">
+                <input type="password" class="form-control" id="floatingPassword" name="pass1" placeholder="Password" required>
                 <label for="floatingPassword">Password</label>
             </div>
             <div class="form-floating">
-                <input type="password" class="form-control mx-0" id="floatingPassword" name="pass2" placeholder="Password">
+                <input type="password" class="form-control mx-0" id="floatingPassword" name="pass2" placeholder="Password" required>
                 <label for="floatingPassword">Ketik ulang password</label>
             </div>
 

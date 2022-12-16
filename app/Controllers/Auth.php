@@ -3,17 +3,19 @@
 namespace App\Controllers;
 
 use App\Models\UserModel;
-use CodeIgniter\Session\Session;
+use App\Models\StockModel;
 
 class Auth extends BaseController
 {
     protected $userModel;
     private $session;
+    private $stock;
 
     public function __construct()
     {
         helper(['form', 'url', 'session']);
         $this->userModel = new UserModel();
+        $this->stock = new StockModel();
         $this->session = session();
     }
 
@@ -33,8 +35,6 @@ class Auth extends BaseController
 
         $user = $this->userModel->where('email', $email)->first();
 
-        // dd($user);
-
         if ($user) {
             $data = $this->userModel->where('email', $email)->first();
 
@@ -49,16 +49,17 @@ class Auth extends BaseController
 
                 $this->session->set($sessionData);
 
-                // dd($this->session->get("loggedIn"));
+                $dataPass = [
+                    "title" => "Selamat Datang | E-ProMKM",
+                    "dataQuery" => $this->stock->where("id_user", session()->get("id"))->find()
+                ];
 
-                dd($data);
-
-                return view('home', $data);
+                return view("home", $dataPass);
             } else {
-                return false;
+                return redirect()->back()->with("error", "Email/Password salah");
             }
         } else {
-            return false;
+            return redirect()->back()->with("error", "Email/Password salah");
         }
     }
 
@@ -76,7 +77,6 @@ class Auth extends BaseController
 
     public function regis()
     {
-
         $pass1 = $this->request->getVar("pass1");
         $pass2 = $this->request->getVar("pass2");
 
@@ -89,8 +89,8 @@ class Auth extends BaseController
                 "password" => $this->request->getVar("pass1")
             ];
 
-
             $this->userModel->save($data);
+
             return redirect()->to('/auth/login');
         } else {
             $data = [
