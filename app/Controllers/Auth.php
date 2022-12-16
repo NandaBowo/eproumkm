@@ -51,6 +51,8 @@ class Auth extends BaseController
 
                 // dd($this->session->get("loggedIn"));
 
+                dd($data);
+
                 return view('home', $data);
             } else {
                 return false;
