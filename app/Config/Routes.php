@@ -57,6 +57,7 @@ $routes->post('/stock/edit', 'Stock::update');
 $routes->get('/rekap', "Rekap::index");
 
 $routes->get('/kasir', "Kasir::index");
+$routes->post('/kasir/input', 'Kasir::input');
 
 
 /*
