@@ -3,28 +3,30 @@
 <?= $this->section('content'); ?>
 <?= $this->include('/layouts/navbar'); ?>
 
+<?php $datetime = new DateTime(); ?>
+
 <div class="container">
     <div class="d-flex">
         <?= $this->include('/layouts/sidebar'); ?>
         <div class="p-2 w-100">
-            <h1 class="mb-3">TRANSAKSI PENJUALAN</h1>
+            <h1 class="mb-3">Transaksi Penjualan</h1>
 
             <form>
                 <div class="mb-3">
                     <label for="tanggal" class="form-label">Tanggal</label>
-                    <input type="text" class="form-control" id="tanggal" aria-describedby="emailHelp">
-                </div>
-                <div class="mb-3">
-                    <label for="barcode" class="form-label">Barcode</label>
-                    <input type="text" class="form-control" id="barcode" aria-describedby="emailHelp">
+                    <input type="date" class="form-control" id="tanggal" name="tanggal" aria-describedby="emailHelp" value="<?= $datetime->format("Y-m-d"); ?>" disabled>
                 </div>
                 <div class="mb-3">
                     <label for="namaBarang" class="form-label">Nama Barang</label>
                     <input type="text" class="form-control" id="namaBarang" aria-describedby="emailHelp">
                 </div>
                 <div class="mb-3">
-                    <label for="harga" class="form-label">Harga</label>
+                    <label for="harga" class="form-label">Harga per Barang</label>
                     <input type="number" class="form-control" id="harga" aria-describedby="emailHelp">
+                </div>
+                <div class="mb-3">
+                    <label for="kuantitas" class="form-label">Kuantitas</label>
+                    <input type="number" class="form-control" id="kuantitas" aria-describedby="emailHelp">
                 </div>
                 <button class="btn btn-primary float-end">Submit</button>
             </form>
