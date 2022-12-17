@@ -3,6 +3,8 @@
 <?= $this->section('content'); ?>
 <?= $this->include('/layouts/navbar'); ?>
 
+<?php $datetime = new DateTime(); ?>
+
 <div class="container">
     <div class="d-flex">
         <?= $this->include('/layouts/sidebar'); ?>
@@ -12,7 +14,7 @@
                 <div class="col-12">
                     <label class="visually-hidden" for="tanggal">Tanggal</label>
                     <div class="input-group">
-                        <input type="text" class="form-control" id="tanggal" name="tanggal" placeholder="Tanggal">
+                        <input type="date" class="form-control" id="tanggal" name="tanggal" placeholder="Tanggal" value="<?= $datetime->format("Y-m-d"); ?>">
                     </div>
                 </div>
 

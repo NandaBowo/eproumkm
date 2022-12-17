@@ -20,14 +20,6 @@
                     <label for="namaBarang" class="form-label">Nama Barang</label>
                     <input type="text" class="form-control" id="namaBarang" aria-describedby="emailHelp">
                 </div>
-                <div class="mb-3">
-                    <label for="harga" class="form-label">Harga per Barang</label>
-                    <input type="number" class="form-control" id="harga" aria-describedby="emailHelp">
-                </div>
-                <div class="mb-3">
-                    <label for="kuantitas" class="form-label">Kuantitas</label>
-                    <input type="number" class="form-control" id="kuantitas" aria-describedby="emailHelp">
-                </div>
                 <button class="btn btn-primary float-end">Submit</button>
             </form>
 
