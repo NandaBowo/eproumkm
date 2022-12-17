@@ -7,9 +7,10 @@
     <div class="d-flex">
         <?= $this->include('/layouts/sidebar'); ?>
         <div class="p-2">
+            <h1 class="mb-3">Daftar Produk</h1>
             <div class="row justify-content-around">
                 <?php foreach ($dataQuery as $data) : ?>
-                    <div class="col-md-4">
+                    <div class="col-md-4 mb-3">
                         <div class="card">
                             <img src="https://th.bing.com/th/id/OIP.79R9vNeEd0djN6RZhTfbAgHaE8?pid=ImgDet&rs=1" class="card-img-top" alt="...">
                             <div class="card-body">

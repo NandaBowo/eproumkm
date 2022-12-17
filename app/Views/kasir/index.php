@@ -20,14 +20,6 @@
                     <label for="namaBarang" class="form-label">Nama Barang</label>
                     <input type="text" name="namaBarang" class="form-control" id="namaBarang" aria-describedby="emailHelp">
                 </div>
-                <div class="mb-3">
-                    <label for="harga" class="form-label">Harga per Barang</label>
-                    <input type="number" name="hargaPer" class="form-control" id="harga" aria-describedby="emailHelp">
-                </div>
-                <div class="mb-3">
-                    <label for="kuantitas" class="form-label">Kuantitas</label>
-                    <input type="number" name="quantitas" class="form-control" id="kuantitas" aria-describedby="emailHelp">
-                </div>
                 <button class="btn btn-primary float-end">Submit</button>
             </form>
 
@@ -38,30 +30,24 @@
             <table class="table table-bordered table-hover text-center">
                 <thead>
                     <tr>
-                        <th scope="col">ID barang</th>
+                        <th scope="col">Tanggal</th>
                         <th scope="col">Nama Barang</th>
-                        <th scope="col">Harga</th>
+                        <th scope="col">Harga per Barang</th>
+                        <th scope="col">Kuantitas</th>
+                        <th scope="col">Total</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
+                        <th scope="row">17/12/2022</th>
+                        <td>Nasi Bakar</td>
+                        <td>Rp 10.000</td>
+                        <td>5</td>
+                        <td>Rp 50.000</td>
                     </tr>
                     <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Larry the Bird</td>
-                        <td>Bird</td>
-                    </tr>
-                    <tr>
-                        <th colspan="2">Total : </th>
-                        <td></td>
+                        <th colspan="4">Total keseluruhan : </th>
+                        <td>Rp 50.000</td>
                     </tr>
                 </tbody>
             </table>
