@@ -75,7 +75,7 @@
                 </tbody>
             </table>
 
-            <button class="btn btn-primary float-end">Print</button>
+            <a href="/kasir/cetak"><button class="btn btn-primary float-end">Print</button></a>
         </div>
     </div>
 </div>

@@ -63,9 +63,21 @@ class Kasir extends BaseController
 
         $this->kasir->save($dataUser);
 
+        return $this->index();
+
         // dd($result);
 
+    }
 
+    public function cetak() {
+        $data = [
+            'status_bayar' => true
+        ];
 
+        $this->kasir->whereIn('status_bayar', [1])
+        ->set(['status_bayar' => false])
+        ->update();
+
+        return redirect()->to('/stock'); //pindah en
     }
 }
