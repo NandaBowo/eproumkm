@@ -16,6 +16,36 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `kasir`
+--
+
+DROP TABLE IF EXISTS `kasir`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `kasir` (
+  `id_kasir` int NOT NULL AUTO_INCREMENT,
+  `id_barang` int NOT NULL,
+  `quantity` int NOT NULL,
+  `status` enum('LUNAS','BELUM LUNAS') DEFAULT NULL,
+  `status_bayar` tinyint(1) DEFAULT '0',
+  `tanggal` date DEFAULT NULL,
+  PRIMARY KEY (`id_kasir`),
+  KEY `fk_sales_barang` (`id_barang`),
+  CONSTRAINT `kasir_ibfk_1` FOREIGN KEY (`id_barang`) REFERENCES `stock` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `kasir`
+--
+
+LOCK TABLES `kasir` WRITE;
+/*!40000 ALTER TABLE `kasir` DISABLE KEYS */;
+INSERT INTO `kasir` VALUES (1,10,5,'LUNAS',0,NULL),(2,13,7,'BELUM LUNAS',0,NULL),(3,9,5,NULL,0,'2022-12-17'),(4,9,8,NULL,0,'2022-12-17'),(5,9,3,'BELUM LUNAS',1,NULL);
+/*!40000 ALTER TABLE `kasir` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `stock`
 --
 
@@ -44,7 +74,7 @@ CREATE TABLE `stock` (
 
 LOCK TABLES `stock` WRITE;
 /*!40000 ALTER TABLE `stock` DISABLE KEYS */;
-INSERT INTO `stock` VALUES (1,NULL,'sdsadasd',1000,10000,'34222',12,NULL,NULL),(2,NULL,'Nasi Bakar',10000,10000,'2332',30,NULL,NULL),(3,NULL,'Nasi Campur',0,0,NULL,NULL,NULL,NULL),(4,3,'Nasi Campur maz',10000,11000,NULL,NULL,NULL,NULL),(5,NULL,'Miyopi',120000,150000,'234f34',30,NULL,NULL),(7,9,'BIng',100000,2000000,'3434ff',21,NULL,NULL),(8,9,'Banana',5000,1000000,'123fd',1,NULL,NULL),(9,10,'Nasi Uduk',1000,15000000,'3456',12,NULL,NULL),(10,10,'Bakar Ayam',400000,450000,'342444',40,'2022-12-15 15:03:37','2022-12-16 00:26:54'),(11,10,'Bakar Ayam Spesial',45000,500000,'54321',50,'2022-12-15 16:28:12','2022-12-16 00:25:31'),(12,NULL,'',0,0,'1234',90,'2022-12-15 16:54:46','2022-12-15 23:54:46'),(13,10,'Nasi kuning',123000,234000,'4234324',11,'2022-12-15 17:27:21','2022-12-16 00:27:21');
+INSERT INTO `stock` VALUES (1,NULL,'sdsadasd',1000,10000,'34222',12,NULL,NULL),(2,NULL,'Nasi Bakar',10000,10000,'2332',30,NULL,NULL),(3,NULL,'Nasi Campur',0,0,NULL,NULL,NULL,NULL),(4,3,'Nasi Campur maz',10000,11000,NULL,NULL,NULL,NULL),(5,NULL,'Miyopi',120000,150000,'234f34',30,NULL,NULL),(7,9,'BIng',100000,2000000,'3434ff',21,NULL,NULL),(8,9,'Banana',5000,1000000,'123fd',1,NULL,NULL),(9,10,'Nasi Uduk',1000,15000000,'3456',12,NULL,NULL),(10,10,'Bakar Ayam',400000,450000,'342444',40,'2022-12-15 15:03:37','2022-12-16 00:26:54'),(11,10,'Bakar Ayam Spesial',45000,500000,'54321',50,'2022-12-15 16:28:12','2022-12-16 00:25:31'),(12,NULL,'',0,0,'1234',90,'2022-12-15 16:54:46','2022-12-15 23:54:46'),(13,10,'Nasi kuning Bakar',123000,2340,'42343',10,'2022-12-15 17:27:21','2022-12-17 02:36:10');
 /*!40000 ALTER TABLE `stock` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -86,4 +116,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-12-16 16:44:41
+-- Dump completed on 2022-12-17 20:00:42
