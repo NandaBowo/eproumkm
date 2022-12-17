@@ -14,11 +14,18 @@
             <form action="/kasir/input" method="POST">
                 <div class="mb-3">
                     <label for="tanggal" class="form-label">Tanggal</label>
-                    <input type="date" class="form-control" id="tanggal" name="tanggal" aria-describedby="emailHelp" value="<?= $datetime->format("Y-m-d"); ?>" disabled>
+                    <input type="date" class="form-control" id="tanggal" name="tanggal" aria-describedby="emailHelp" value="<?= $datetime->format("Y-m-d"); ?>" readonly>
                 </div>
                 <div class="mb-3">
-                    <label for="namaBarang" class="form-label">Nama Barang</label>
-                    <input type="text" name="namaBarang" class="form-control" id="namaBarang" aria-describedby="emailHelp">
+                    <select class="form-select mb-3" aria-label="Default select example" name="namaProduk">
+                        <?php foreach($name as $n) : ?>
+                        <option value="<?= $n['id']; ?>" selected><?= $n['name']; ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="kuantitas" class="form-label">Kuantitas</label>
+                    <input type="text" name="kuantitas" class="form-control" id="kuantitas" aria-describedby="emailHelp">
                 </div>
                 <button class="btn btn-primary float-end">Submit</button>
             </form>

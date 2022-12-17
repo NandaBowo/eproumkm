@@ -2,8 +2,13 @@
 
 namespace App\Controllers;
 
+use App\Models\KasirModel;
+
 class Sales extends BaseController
 {
+
+
+
     public function index()
     {
         $data = [
@@ -13,4 +18,6 @@ class Sales extends BaseController
 
         return view('sales/index', $data);
     }
+
+    
 }
