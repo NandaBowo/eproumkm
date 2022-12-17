@@ -27,7 +27,7 @@ CREATE TABLE `kasir` (
   `id_barang` int NOT NULL,
   `quantity` int NOT NULL,
   `status` enum('LUNAS','BELUM LUNAS') DEFAULT NULL,
-  `status_bayar` tinyint(1) DEFAULT '0',
+  `status_bayar` tinyint(1) DEFAULT '1',
   `tanggal` date DEFAULT NULL,
   PRIMARY KEY (`id_kasir`),
   KEY `fk_sales_barang` (`id_barang`),
@@ -116,4 +116,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-12-17 20:00:42
+-- Dump completed on 2022-12-17 21:25:18
