@@ -23,18 +23,18 @@ class Kasir extends BaseController
     {
 
         $result = $this->stock->where("id_user", session()->get("id"))->find();
-        
+
         // dd($result);
 
         $join = $this->kasir->getGet()->getResult();
-        // dd($join);
-
+        $joinSum = $this->kasir->getSum()->getResult();
 
         $data = [
             "title" => "Halaman Kasir",
             "active" => "active",
             "name" => $result,
-            "dataJoin" => $join
+            "dataJoin" => $join,
+            "joinSum" => $joinSum
         ];
 
         // dd($data);
@@ -56,17 +56,16 @@ class Kasir extends BaseController
         $dataUser = [
             'id_barang' => $id,
             'quantity' => $kuantitas,
-            'status' => null,
-            'tanggal' => $tanggal
+            'status' => $status,
+            'status_bayar' => true,
+            'tanggal' => $tanggal,
         ];
-
-        // dd($dataUser);
 
         $this->kasir->save($dataUser);
 
         // dd($result);
 
 
-       
+
     }
 }
