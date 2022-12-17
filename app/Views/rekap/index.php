@@ -8,7 +8,7 @@
         <?= $this->include('/layouts/sidebar'); ?>
         <div class="p-2 w-100">
             <h1 class="mb-3">Rekap Penjualan</h1>
-            <span>Bulan</span> <select class="form-select mb-3 w-25 d-inline" aria-label="Default select example">
+            <span>Bulan : </span> <select class="form-select mb-3 w-25 d-inline" aria-label="Default select example">
                 <option value="januari" selected>Januari</option>
                 <option value="februari">Februari</option>
                 <option value="maret">Maret</option>
