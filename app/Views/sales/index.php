@@ -7,6 +7,7 @@
     <div class="d-flex">
         <?= $this->include('/layouts/sidebar'); ?>
         <div class="p-2  w-100">
+            <h1 class="mb-3">Sales Penjualan</h1>
             <form class="row row-cols-lg-auto g-3 align-items-center mb-3">
                 <div class="col-12">
                     <label class="visually-hidden" for="tanggal">Tanggal</label>

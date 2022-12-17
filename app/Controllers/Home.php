@@ -15,12 +15,19 @@ class Home extends BaseController
 
     public function index()
     {
-
-        $data = [
-            "title" => "Selamat datang di E-Promkm UNUSA",
-            "active" => "active",
-            "dataQuery" => $this->stock->where("id_user", session()->get("id"))->find()
-        ];
+        if (session()->get("loggedIn")) {
+            $data = [
+                "title" => "Selamat datang di E-Promkm UNUSA",
+                "active" => "active",
+                "dataQuery" => $this->stock->where("id_user", session()->get("id"))->find()
+            ];
+        } else {
+            $data = [
+                "title" => "Selamat datang di E-Promkm UNUSA",
+                "active" => "active",
+                "dataQuery" => $this->stock->findAll()
+            ];
+        }
 
         return view('home', $data);
     }

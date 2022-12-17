@@ -7,6 +7,7 @@
     <div class="d-flex">
         <?= $this->include('/layouts/sidebar'); ?>
         <div class="p-2 w-100">
+            <h1 class="mb-3">Rekap Penjualan</h1>
             <table class="table table-bordered text-center">
                 <thead class="bg-dark text-light">
                     <tr>
