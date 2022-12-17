@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Controllers\Stock;
 use CodeIgniter\Database\Query;
 use CodeIgniter\Model;
 
@@ -33,5 +34,14 @@ class KasirModel extends Model
         return $query;
 
         // select * from kasir join stock on kasir.id = stock.id;
+    }
+
+    public function getSales() {
+        $query = $this->db->table('kasir')
+            ->select("tanggal, name, quantity, status")
+            ->join('stock', 'kasir.id_barang = stock.id')
+            ->get();
+
+            return $query;
     }
 }

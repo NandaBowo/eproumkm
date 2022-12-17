@@ -31,18 +31,20 @@
                     </tr>
                 </thead>
                 <tbody class="table-group-divider">
+                    <?php foreach($barang as $b): ?>
                     <tr>
+                        <td><?= $b['name']; ?></td>
+                        <td>50 Buah</td>
+                    </tr>
+                    <?php endforeach; ?>
+                    <!-- <tr>
                         <td>Nasi Bakar</td>
                         <td>50 Buah</td>
                     </tr>
                     <tr>
                         <td>Nasi Bakar</td>
                         <td>50 Buah</td>
-                    </tr>
-                    <tr>
-                        <td>Nasi Bakar</td>
-                        <td>50 Buah</td>
-                    </tr>
+                    </tr> -->
                 </tbody>
             </table>
         </div>

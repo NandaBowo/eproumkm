@@ -51,6 +51,9 @@ class Kasir extends BaseController
         $kuantitas = $this->request->getVar('kuantitas');
         $status = $this->request->getVar('status');
 
+        $idUser = session()->get('id');
+        $stok = $this->stock->where('id', $id)->first();
+        // dd($stok);
         // $simpanan = $this->kasir->getGet()->getResult();
 
         $dataUser = [
@@ -62,6 +65,10 @@ class Kasir extends BaseController
         ];
 
         $this->kasir->save($dataUser);
+
+        $this->stock->whereIn('id', [$stok['id']])
+        ->set(['stock' => $stok['stock'] - $kuantitas])
+        ->update();
 
         return $this->index();
 

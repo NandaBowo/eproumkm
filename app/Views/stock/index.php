@@ -20,7 +20,7 @@
                         <th scope="col">Nama Barang</th>
                         <th scope="col">Harga Beli</th>
                         <th scope="col">Harga Jual</th>
-                        <th scope="col">Barcode</th>
+                        <th scope="col">Stock</th>
                         <th scope="col">Aksi</th>
                     </tr>
                 </thead>
@@ -32,7 +32,7 @@
                             <td><?= $data['name']; ?></td>
                             <td><?= $data['harga_beli']; ?></td>
                             <td><?= $data['harga_jual']; ?></td>
-                            <td><?= $data['barcode']; ?></td>
+                            <td><?= $data['stock']; ?></td>
                             <!--  -->
                             <form action="/stock/form/edit/<?= $data["id"]; ?>" method="POST">
                                 <td>
