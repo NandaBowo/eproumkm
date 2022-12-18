@@ -9,9 +9,13 @@
         <div class="p-2 w-100">
             <h1 class="mb-3">Tambah Barang</h1>
 
-            <form action="/stock/insert" method="POST">
+            <form action="/stock/insert" method="POST" enctype="multipart/form-data">
                 <div class="mb-3">
                     <input type="hidden" class="form-control" id="idUser" name="idUser" aria-describedby="emailHelp" value="<?= session()->get("id"); ?>">
+                </div>
+                <div class="mb-3">
+                    <label for="img" class="form-label">Gambar</label>
+                    <input type="file" class="form-control" id="img" name="img" aria-describedby="emailHelp">
                 </div>
                 <div class="mb-3">
                     <label for="nameBarang" class="form-label">Nama Barang</label>
