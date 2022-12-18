@@ -67,13 +67,19 @@ class Kasir extends BaseController
 
         // dd($dataUser);
 
-        $this->kasir->save($dataUser);
+        if($stok['stock'] - $kuantitas <= 0) {
+            return "Barange garek " .  $stok['stock'] . " bolo"; // kasih falsh message
+        } else {
+            $this->kasir->save($dataUser);
 
-        $this->stock->whereIn('id', [$stok['id']])
-        ->set(['stock' => $stok['stock'] - $kuantitas])
-        ->update();
+            $this->stock->whereIn('id', [$stok['id']])
+            ->set(['stock' => $stok['stock'] - $kuantitas])
+            ->update();
 
-        return $this->index();
+            return $this->index();
+        }
+
+        
 
         // dd($result);
 
