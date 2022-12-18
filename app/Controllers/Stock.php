@@ -97,7 +97,7 @@ class Stock extends BaseController
             'name' => $this->request->getVar('namaBarang'),
             'harga_beli' => $this->request->getVar('hargaBeli'),
             'harga_jual' => $this->request->getVar('hargaJual'),
-            'barcode' => $this->request->getVar('barcode'),
+            // 'barcode' => $this->request->getVar('barcode'),
             'stock' => $this->request->getVar('stock')
         ];
 
