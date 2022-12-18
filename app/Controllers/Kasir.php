@@ -58,28 +58,37 @@ class Kasir extends BaseController
 
         $dataUser = [
             'id_barang' => $id,
+            'id_user' => $idUser,
             'quantity' => $kuantitas,
             'status' => $status,
             'status_bayar' => true,
             'tanggal' => $tanggal,
         ];
 
-        $this->kasir->save($dataUser);
+        // dd($dataUser);
 
-        $this->stock->whereIn('id', [$stok['id']])
-        ->set(['stock' => $stok['stock'] - $kuantitas])
-        ->update();
+        if($stok['stock'] - $kuantitas <= 0) {
+            return "Barange garek " .  $stok['stock'] . " bolo"; // kasih falsh message
+        } else {
+            $this->kasir->save($dataUser);
 
-        return $this->index();
+            $this->stock->whereIn('id', [$stok['id']])
+            ->set(['stock' => $stok['stock'] - $kuantitas])
+            ->update();
+
+            return $this->index();
+        }
+
+        
 
         // dd($result);
 
     }
 
     public function cetak() {
-        $data = [
-            'status_bayar' => true
-        ];
+        // $data = [
+        //     'status_bayar' => true
+        // ];
 
         $this->kasir->whereIn('status_bayar', [1])
         ->set(['status_bayar' => false])

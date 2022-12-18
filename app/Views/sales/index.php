@@ -33,8 +33,8 @@
                 <tbody class="table-group-divider">
                     <?php foreach($barang as $b): ?>
                     <tr>
-                        <td><?= $b['name']; ?></td>
-                        <td>50 Buah</td>
+                        <td><?= $b->name; ?></td>
+                        <td><?= $b->total; ?> buah</td>
                     </tr>
                     <?php endforeach; ?>
                     <!-- <tr>
