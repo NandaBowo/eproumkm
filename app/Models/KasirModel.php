@@ -42,7 +42,8 @@ class KasirModel extends Model
         // select * from kasir join stock on kasir.id = stock.id;
     }
 
-    public function getSales() {
+    public function getSales()
+    {
         $id = session()->get('id');
         $date = new DateTime();
         // dd($date);
@@ -52,6 +53,21 @@ class KasirModel extends Model
             ->where('tanggal', $date->format('Y-m-d'))
             ->where('kasir.id_user', $id)
             ->groupBy('name')
+            ->get();
+        return $query;
+    }
+
+    public function getDataStock()
+    {
+        $id = session()->get('id');
+        $date = new DateTime();
+        // dd($date);
+        $query = $this->db->table('kasir')
+            // ->select("name, quantity, tanggal, sum(quantity) as total")
+            ->join('stock', 'kasir.id_barang = stock.id')
+            ->where('tanggal', $date->format('Y-m-d'))
+            ->where('kasir.id_user', $id)
+            // ->groupBy('name')
             ->get();
         return $query;
     }

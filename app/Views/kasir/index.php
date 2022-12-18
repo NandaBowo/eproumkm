@@ -11,6 +11,12 @@
         <div class="p-2 w-100">
             <h1 class="mb-3">Transaksi Penjualan</h1>
 
+            <?php if (session()->getFlashdata("Empty Stock")) : ?>
+                <div class="alert alert-danger" role="alert">
+                    <?= session()->getFlashdata("Empty Stock"); ?>
+                </div>
+            <?php endif; ?>
+
             <form action="/kasir/input" method="POST">
                 <div class="mb-3 row">
                     <label for="tanggal" class="col-sm-2 col-form-label">Tanggal : </label>

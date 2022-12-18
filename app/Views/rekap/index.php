@@ -22,6 +22,14 @@
                 <option value="november">November</option>
                 <option value="desember">Desember</option>
             </select>
+            <span>Tahun : </span> <select class="form-select mb-3 w-25 d-inline" aria-label="Default select example">
+                <option value="2022" selected>2022</option>
+                <option value="2023" selected>2023</option>
+                <option value="2024" selected>2024</option>
+                <option value="2025" selected>2025</option>
+                <option value="2026" selected>2026</option>
+            </select>
+            <button type="submit" class="btn btn-primary ms-3">Cari</button>
             <table class="table table-bordered text-center">
                 <thead class="bg-dark text-light">
                     <tr>
@@ -31,20 +39,13 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td colspan="2">Larry the Bird</td>
-                    </tr>
+                    <?php foreach ($dataStock as $data) : ?>
+                        <tr>
+                            <th scope="row"><?= date("d", strtotime($data->tanggal)); ?></th>
+                            <td><?= $data->harga_jual * $data->stock; ?></td>
+                            <td><?= $data->harga_jual * $data->quantity; ?></td>
+                        </tr>
+                    <?php endforeach; ?>
                 </tbody>
             </table>
         </div>

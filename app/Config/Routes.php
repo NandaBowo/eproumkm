@@ -60,6 +60,10 @@ $routes->get('/kasir', "Kasir::index");
 $routes->post('/kasir/input', 'Kasir::input');
 $routes->get('/kasir/cetak', 'Kasir::cetak');
 
+$routes->get('/invoice', function () {
+    return view("/invoice/index");
+});
+
 
 /*
  * --------------------------------------------------------------------
