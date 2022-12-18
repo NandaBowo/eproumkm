@@ -30,19 +30,30 @@ class Stock extends BaseController
 
     public function insert()
     {
+
+        if(!$this->validate([
+            'img' => [
+                'rules' => 'uploaded[img]|max_size[img,1024]|is_image[img]|mime_in[img,image/jpg,image/jpeg,image/png]'
+            ]   
+        ])) {
+            return $this->addView();
+        }
+
+        $fileImg = $this->request->getFile('img');
+        // dd($fileImg);
+        $nameImg = $fileImg->getRandomName();
+        // dd($nameImg);
+        $fileImg->move('img', $nameImg);
+
         $dataInput = [
             "id_user" => $this->request->getVar("idUser"),
             "name" => $this->request->getVar("name"),
             "harga_beli" => $this->request->getVar("hargaBeli"),
             "harga_jual" => $this->request->getVar("hargaJual"),
             "barcode" => $this->request->getVar("barcode"),
-            "stock" => $this->request->getVar("stock")
+            "stock" => $this->request->getVar("stock"),
+            "img" => $nameImg
         ];
-        // $iduser = $this->request->getVar("idBarang");
-        // $name = $this->request->getVar("name");
-        // $hargaBeli = $this->request->getVar("hargaBeli");
-        // $hargaJual = $this->request->getVar("hargaJual");
-        // $hargaGrosir = $this->request->getVar("hargaGrosir");
 
         $this->stock->save($dataInput);
 
