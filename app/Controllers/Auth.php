@@ -38,8 +38,9 @@ class Auth extends BaseController
         if ($user) {
             $data = $this->userModel->where('email', $email)->first();
 
-            if ($data['password'] == $pass) {
-
+            $auth = password_verify($pass, $data['password']);
+            if ($auth) {
+                // dd($auth);
                 $sessionData = [
                     "id" => $data["id"],
                     "name" => $data["name"],
@@ -86,7 +87,7 @@ class Auth extends BaseController
                 "email" => $this->request->getVar("email"),
                 "hp" => $this->request->getVar("hp"),
                 "umkm" => $this->request->getVar("umkm"),
-                "password" => $this->request->getVar("pass1")
+                "password" => password_hash($pass1, PASSWORD_DEFAULT)
             ];
 
             $this->userModel->save($data);
