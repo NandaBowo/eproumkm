@@ -2,7 +2,6 @@
     <div class="card" style="width: 18rem;">
         <ul class="list-group list-group-flush">
             <a class="list-group-item" href="/">Beranda</a>
-            <a class="list-group-item" href="#">Categories</a>
             <?php if ((session()->get("name") != null)) : ?>
                 <a class="list-group-item" href="/kasir">Kasir</a>
                 <a class="list-group-item" href="/sales">Sales</a>

@@ -17,6 +17,7 @@
                 <thead>
                     <tr>
                         <th scope="col">No.</th>
+                        <th scope="col">Gambar</th>
                         <th scope="col">Nama Barang</th>
                         <th scope="col">Harga Beli</th>
                         <th scope="col">Harga Jual</th>
@@ -29,6 +30,7 @@
                     <?php foreach ($dataQuery as $data) : ?>
                         <tr>
                             <th scope="row"><?= $i++; ?></th>
+                            <td class="text-center"><img src="/img/<?= $data["img"]; ?>" alt="Gambar tidak ada" width="72"></td>
                             <td><?= $data['name']; ?></td>
                             <td><?= $data['harga_beli']; ?></td>
                             <td><?= $data['harga_jual']; ?></td>

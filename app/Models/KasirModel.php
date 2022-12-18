@@ -42,33 +42,62 @@ class KasirModel extends Model
         // select * from kasir join stock on kasir.id = stock.id;
     }
 
-    public function getSales()
+    public function getSales($salesSearch)
     {
         $id = session()->get('id');
         $date = new DateTime();
         // dd($date);
-        $query = $this->db->table('kasir')
-            ->select("name, quantity, tanggal, sum(quantity) as total")
-            ->join('stock', 'kasir.id_barang = stock.id')
-            ->where('tanggal', $date->format('Y-m-d'))
-            ->where('kasir.id_user', $id)
-            ->groupBy('name')
-            ->get();
+
+        if ($salesSearch == null || $salesSearch == "") {
+            $query = $this->db->table('kasir')
+                ->select("name, quantity, tanggal, sum(quantity) as total")
+                ->join('stock', 'kasir.id_barang = stock.id')
+                ->where('tanggal', $date->format('Y-m-d'))
+                ->where('kasir.id_user', $id)
+                ->groupBy('name')
+                ->get();
+        } else {
+            $query = $this->db->table('kasir')
+                ->select("name, quantity, tanggal, sum(quantity) as total")
+                ->join('stock', 'kasir.id_barang = stock.id')
+                ->where('tanggal', $salesSearch)
+                ->where('kasir.id_user', $id)
+                ->groupBy('name')
+                ->get();
+        }
+
         return $query;
     }
 
-    public function getDataStock()
+    public function getDataStock($rekapBulan, $rekapTahun)
     {
         $id = session()->get('id');
         $date = new DateTime();
-        // dd($date);
-        $query = $this->db->table('kasir')
-            // ->select("name, quantity, tanggal, sum(quantity) as total")
-            ->join('stock', 'kasir.id_barang = stock.id')
-            ->where('tanggal', $date->format('Y-m-d'))
-            ->where('kasir.id_user', $id)
-            // ->groupBy('name')
-            ->get();
+
+        if ($rekapBulan == null || $rekapBulan == "") {
+            $rekap = "";
+        } else {
+            $rekap = $rekapTahun . "-" . $rekapBulan;
+        }
+
+        if (($rekap == null || $rekap == "-")) {
+            $query = $this->db->table('kasir')
+                // ->select("name, quantity, tanggal, sum(quantity) as total")
+                ->join('stock', 'kasir.id_barang = stock.id')
+                ->where('tanggal', $date->format('Y-m-d'))
+                ->where('kasir.id_user', $id)
+                // ->groupBy('name')
+                ->get();
+        } else {
+            $query = $this->db->table('kasir')
+                // ->select("name, quantity, tanggal, sum(quantity) as total")
+                ->join('stock', 'kasir.id_barang = stock.id')
+                ->like('tanggal', $rekap)
+                ->where('kasir.id_user', $id)
+                // ->groupBy('name')
+                ->get();
+        }
+
         return $query;
     }
 

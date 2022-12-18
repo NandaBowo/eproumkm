@@ -19,14 +19,49 @@ class Home extends BaseController
             $data = [
                 "title" => "Selamat datang di E-Promkm UNUSA",
                 "active" => "active",
-                "dataQuery" => $this->stock->where("id_user", session()->get("id"))->find()
+                "dataQuery" => $this->stock->where("id_user", session()->get("id"))->orderBy("created_at", "desc")->find()
             ];
         } else {
             $data = [
                 "title" => "Selamat datang di E-Promkm UNUSA",
                 "active" => "active",
-                "dataQuery" => $this->stock->findAll()
+                "dataQuery" => $this->stock->orderBy("created_at", "desc")->findAll()
             ];
+        }
+
+        return view('home', $data);
+    }
+
+    public function search()
+    {
+        if (session()->get("loggedIn")) {
+            if ($this->request->getVar("search")) {
+                $data = [
+                    "title" => "Selamat datang di E-Promkm UNUSA",
+                    "active" => "active",
+                    "dataQuery" => $this->stock->where("id_user", session()->get("id"))->like("name", $this->request->getVar("search"))->orderBy("created_at", "desc")->find()
+                ];
+            } else {
+                $data = [
+                    "title" => "Selamat datang di E-Promkm UNUSA",
+                    "active" => "active",
+                    "dataQuery" => $this->stock->where("id_user", session()->get("id"))->orderBy("created_at", "desc")->find()
+                ];
+            }
+        } else {
+            if ($this->request->getVar("search")) {
+                $data = [
+                    "title" => "Selamat datang di E-Promkm UNUSA",
+                    "active" => "active",
+                    "dataQuery" => $this->stock->like("name", $this->request->getVar("search"))->orderBy("created_at", "desc")->find()
+                ];
+            } else {
+                $data = [
+                    "title" => "Selamat datang di E-Promkm UNUSA",
+                    "active" => "active",
+                    "dataQuery" => $this->stock->orderBy("created_at", "desc")->findAll()
+                ];
+            }
         }
 
         return view('home', $data);

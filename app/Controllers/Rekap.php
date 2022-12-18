@@ -22,12 +22,14 @@ class Rekap extends BaseController
     public function index()
     {
         $dataStock = $this->dataStock->like("created_at", $this->datetime->format("Y-m-d "))->find();
-        $barang = $this->kasir->getDataStock()->getResult();
+        $barang = $this->kasir->getDataStock($this->request->getVar("rekapBulan"), $this->request->getVar("rekapTahun"))->getResult();
 
         $data = [
             "title" => "Halaman Rekap Penjualan",
             "active" => "active",
-            "dataStock" => $barang
+            "dataStock" => $barang,
+            "rekapBulan" => $this->request->getVar("rekapBulan"),
+            "rekapTahun" => $this->request->getVar("rekapTahun")
         ];
 
         return view('rekap/index', $data);

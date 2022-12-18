@@ -23,7 +23,7 @@ class Sales extends BaseController
     public function index()
     {
 
-        
+
         $id = session()->get('id');
         // $query = $this->kasir // dari sini
         // ->where('id_user', $id)
@@ -32,18 +32,17 @@ class Sales extends BaseController
         // $namaBarang = $this->stock->where('id_user', $id)->find();
 
         // dd($this->kasir->getSales()->getResult());
-        $barang = $this->kasir->getSales()->getResult();
+        $barang = $this->kasir->getSales($this->request->getVar("tanggal"))->getResult();
 
         // dd($query);
 
         $data = [
             "title" => "Halaman Sales",
             "active" => "active",
-            "barang" => $barang
+            "barang" => $barang,
+            "tanggalValue" => $this->request->getVar("tanggal")
         ];
 
         return view('sales/index', $data);
     }
-
-    
 }
