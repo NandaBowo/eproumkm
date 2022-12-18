@@ -25,19 +25,21 @@ class Sales extends BaseController
 
         
         $id = session()->get('id');
-        $query = $this->kasir // dari sini
-        ->where('id_user', $id)
-        ->where('tanggal', $this->datetime->format("Y-m-d"))
-        ->find(); // sampai sini perlu dirubah
-        $namaBarang = $this->stock->where('id_user', $id)->find();
+        // $query = $this->kasir // dari sini
+        // ->where('id_user', $id)
+        // ->where('tanggal', $this->datetime->format("Y-m-d"))
+        // ->find(); // sampai sini perlu dirubah
+        // $namaBarang = $this->stock->where('id_user', $id)->find();
 
+        // dd($this->kasir->getSales()->getResult());
+        $barang = $this->kasir->getSales()->getResult();
 
         // dd($query);
 
         $data = [
             "title" => "Halaman Sales",
             "active" => "active",
-            "barang" => $namaBarang
+            "barang" => $barang
         ];
 
         return view('sales/index', $data);

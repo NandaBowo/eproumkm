@@ -58,11 +58,14 @@ class Kasir extends BaseController
 
         $dataUser = [
             'id_barang' => $id,
+            'id_user' => $idUser,
             'quantity' => $kuantitas,
             'status' => $status,
             'status_bayar' => true,
             'tanggal' => $tanggal,
         ];
+
+        // dd($dataUser);
 
         $this->kasir->save($dataUser);
 
@@ -77,9 +80,9 @@ class Kasir extends BaseController
     }
 
     public function cetak() {
-        $data = [
-            'status_bayar' => true
-        ];
+        // $data = [
+        //     'status_bayar' => true
+        // ];
 
         $this->kasir->whereIn('status_bayar', [1])
         ->set(['status_bayar' => false])
