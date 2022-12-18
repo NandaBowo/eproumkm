@@ -91,10 +91,6 @@ class Kasir extends BaseController
         //     'status_bayar' => true
         // ];
 
-        $this->kasir->whereIn('status_bayar', [1])
-            ->set(['status_bayar' => false])
-            ->update();
-
-        return redirect()->to('/stock'); //pindah en
+        return redirect()->to('/invoice');
     }
 }

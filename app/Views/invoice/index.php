@@ -36,6 +36,7 @@
         .brand-section {
             background-color: #0d1033;
             padding: 10px 40px;
+            margin-top: 32px;
         }
 
         .logo {
@@ -127,13 +128,12 @@
         <div class="brand-section">
             <div class="row">
                 <div class="col-6">
-                    <h1 class="text-white">FABCART</h1>
+                    <h1 class="text-white">E-PROMKM UNUSA</h1>
                 </div>
                 <div class="col-6">
                     <div class="company-details">
-                        <p class="text-white">assdad asd asda asdad a sd</p>
-                        <p class="text-white">assdad asd asd</p>
-                        <p class="text-white">+91 888555XXXX</p>
+                        <p class="text-white"><?= $user["name"]; ?></p>
+                        <p class="text-white"><?= $user["hp"]; ?></p>
                     </div>
                 </div>
             </div>
@@ -142,63 +142,58 @@
         <div class="body-section">
             <div class="row">
                 <div class="col-6">
-                    <h2 class="heading">Invoice No.: 001</h2>
-                    <p class="sub-heading">Tracking No. fabcart2025 </p>
-                    <p class="sub-heading">Order Date: 20-20-2021 </p>
-                    <p class="sub-heading">Email Address: customer@gfmail.com </p>
+                    <h2 class="heading">Invoice No.: <?= $joinFirst->id; ?></h2>
+                    <p class="sub-heading">Tanggal Pesanan: <?= $joinFirst->tanggal; ?> </p>
+                    <p class="sub-heading">Alamat Email: <?= $user["email"]; ?> </p>
                 </div>
                 <div class="col-6">
-                    <p class="sub-heading">Full Name: </p>
-                    <p class="sub-heading">Address: </p>
-                    <p class="sub-heading">Phone Number: </p>
-                    <p class="sub-heading">City,State,Pincode: </p>
+                    <p class="sub-heading">Nama Lengkap: <?= $user["name"]; ?></p>
+                    <p class="sub-heading">Nomor Kontak: <?= $user["hp"]; ?></p>
                 </div>
             </div>
         </div>
 
         <div class="body-section">
-            <h3 class="heading">Ordered Items</h3>
+            <h3 class="heading">Produk Yang Dipesan</h3>
             <br>
             <table class="table-bordered">
                 <thead>
                     <tr>
-                        <th>Product</th>
-                        <th class="w-20">Price</th>
-                        <th class="w-20">Quantity</th>
-                        <th class="w-20">Grandtotal</th>
+                        <th>Nama Produk</th>
+                        <th class="w-20">Harga Produk Satuan</th>
+                        <th class="w-20">Kuantitas</th>
+                        <th class="w-20">Status Bayar</th>
+                        <th class="w-20">Total</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Product Name</td>
-                        <td>10</td>
-                        <td>1</td>
-                        <td>10</td>
-                    </tr>
-                    <tr>
-                        <td colspan="3" class="text-right">Sub Total</td>
-                        <td> 10.XX</td>
-                    </tr>
-                    <tr>
-                        <td colspan="3" class="text-right">Tax Total %1X</td>
-                        <td> 2</td>
-                    </tr>
-                    <tr>
-                        <td colspan="3" class="text-right">Grand Total</td>
-                        <td> 12.XX</td>
-                    </tr>
+                    <?php foreach ($dataJoin as $join) : ?>
+                        <tr>
+                            <td><?= $join->name; ?></td>
+                            <td><?= $join->harga_jual; ?></td>
+                            <td><?= $join->quantity; ?></td>
+                            <td><?= $join->status; ?></td>
+                            <td><?= $join->harga_jual * $join->quantity; ?></td>
+                        </tr>
+                    <?php endforeach; ?>
+                    <?php foreach ($joinSum as $js) : ?>
+                        <tr>
+                            <td colspan="4" class="text-right">Total Keseluruhan</td>
+                            <td><?= $js->total_seluruh; ?></td>
+                        </tr>
+                    <?php endforeach; ?>
                 </tbody>
             </table>
             <br>
-            <h3 class="heading">Payment Status: Paid</h3>
-            <h3 class="heading">Payment Mode: Cash on Delivery</h3>
         </div>
 
         <div class="body-section">
-            <p>&copy; Copyright 2021 - Fabcart. All rights reserved.
-                <a href="https://www.fundaofwebit.com/" class="float-right">www.fundaofwebit.com</a>
+            <p>&copy; Copyright 2022 - E-PROMKM UNUSA. All rights reserved.
+                <a href="/" class="float-right">www.epromkmunusa.com</a>
             </p>
         </div>
+
+        <a href="/kembali" style="line-height: 8;">Kembali ke menu utama</a>
     </div>
 
 </body>

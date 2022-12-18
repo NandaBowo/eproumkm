@@ -81,7 +81,9 @@
                 </tbody>
             </table>
 
-            <a href="/kasir/cetak"><button class="btn btn-primary float-end">Print</button></a>
+            <form action="/kasir/cetak" method="post">
+                <button type="submit" class="btn btn-primary float-end">Print</button>
+            </form>
         </div>
     </div>
 </div>

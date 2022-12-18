@@ -71,4 +71,18 @@ class KasirModel extends Model
             ->get();
         return $query;
     }
+
+    public function getFirst()
+    {
+        $id = session()->get('id');
+        // dd($id);
+        $query = $this->db->table('kasir')
+            ->join('stock', 'kasir.id_barang = stock.id')
+            ->where('status_bayar', 1)
+            ->where('kasir.id_user', $id)
+            ->get();
+        return $query;
+
+        // select * from kasir join stock on kasir.id = stock.id;
+    }
 }

@@ -58,11 +58,10 @@ $routes->get('/rekap', "Rekap::index");
 
 $routes->get('/kasir', "Kasir::index");
 $routes->post('/kasir/input', 'Kasir::input');
-$routes->get('/kasir/cetak', 'Kasir::cetak');
+$routes->post('/kasir/cetak', 'Kasir::cetak');
 
-$routes->get('/invoice', function () {
-    return view("/invoice/index");
-});
+$routes->get('/invoice', "Invoice::index");
+$routes->get('/kembali', "Invoice::kembaliHapus");
 
 
 /*
