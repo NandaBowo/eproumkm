@@ -74,8 +74,9 @@
                     <?php endforeach; ?>
                     <?php foreach ($joinSum as $js) : ?>
                         <tr>
+                           
                             <th colspan="5">Total keseluruhan : </th>
-                            <td>Rp <?= number_format($js->total_seluruh); ?></td>
+                            <td>Rp <?= ($js->total_seluruh == null) ? "" : number_format($js->total_seluruh) ?></td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
