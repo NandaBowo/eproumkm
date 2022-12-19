@@ -18,7 +18,7 @@ class Stock extends BaseController
     {
         $data = [
             "title" => "Halaman Stock",
-            "active" => "active",
+            "activeStock" => "active",
             "dataQuery" => $this->stock->where("id_user", session()->get("id"))->find()
         ];
 
@@ -31,10 +31,10 @@ class Stock extends BaseController
     public function insert()
     {
 
-        if(!$this->validate([
+        if (!$this->validate([
             'img' => [
                 'rules' => 'uploaded[img]|max_size[img,1024]|is_image[img]|mime_in[img,image/jpg,image/jpeg,image/png]'
-            ]   
+            ]
         ])) {
             return $this->addView();
         }
@@ -66,7 +66,7 @@ class Stock extends BaseController
     {
         $data = [
             "title" => "Halaman Tambah Stok",
-            "active" => "active"
+            "activeStock" => "active"
         ];
 
         return view('/stock/stock_form', $data);
@@ -81,7 +81,7 @@ class Stock extends BaseController
 
         $data = [
             "title" => "Halaman Tambah Stok",
-            "active" => "active",
+            "activeStock" => "active",
             "id" => $user["id"],
             "id_user" => $user["id_user"],
             "namaBarang" => $user["name"],

@@ -38,7 +38,7 @@ class Sales extends BaseController
 
         $data = [
             "title" => "Halaman Sales",
-            "active" => "active",
+            "activeSales" => "active",
             "barang" => $barang,
             "tanggalValue" => $this->request->getVar("tanggal")
         ];

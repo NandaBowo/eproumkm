@@ -31,7 +31,7 @@ class Kasir extends BaseController
 
         $data = [
             "title" => "Halaman Kasir",
-            "active" => "active",
+            "activeKasir" => "active",
             "name" => $result,
             "dataJoin" => $join,
             "joinSum" => $joinSum

@@ -49,8 +49,8 @@
                         <tr>
                             <th scope="row"><?= date("d", strtotime($data->tanggal)); ?></th>
                             <td><?= $data->name; ?></td>
-                            <td><?= $data->harga_jual * $data->stock; ?></td>
-                            <td><?= $data->harga_jual * $data->quantity; ?></td>
+                            <td>Rp <?= number_format($data->harga_jual * $data->stock); ?></td>
+                            <td>Rp <?= number_format($data->harga_jual * $data->quantity); ?></td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>

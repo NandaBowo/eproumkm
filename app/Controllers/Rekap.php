@@ -26,7 +26,7 @@ class Rekap extends BaseController
 
         $data = [
             "title" => "Halaman Rekap Penjualan",
-            "active" => "active",
+            "activeRecap" => "active",
             "dataStock" => $barang,
             "rekapBulan" => $this->request->getVar("rekapBulan"),
             "rekapTahun" => $this->request->getVar("rekapTahun")
