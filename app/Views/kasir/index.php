@@ -66,16 +66,16 @@
                         <tr>
                             <th scope="row"><?= $join->tanggal; ?></th>
                             <td><?= $join->name; ?></td>
-                            <td><?= $join->harga_jual; ?></td>
+                            <td>Rp <?= number_format($join->harga_jual); ?></td>
                             <td><?= $join->quantity; ?></td>
                             <td><?= $join->status; ?></td>
-                            <td><?= $join->harga_jual * $join->quantity; ?></td>
+                            <td>Rp <?= number_format($join->harga_jual * $join->quantity); ?></td>
                         </tr>
                     <?php endforeach; ?>
                     <?php foreach ($joinSum as $js) : ?>
                         <tr>
                             <th colspan="5">Total keseluruhan : </th>
-                            <td><?= $js->total_seluruh; ?></td>
+                            <td>Rp <?= number_format($js->total_seluruh); ?></td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>

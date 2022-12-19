@@ -18,13 +18,13 @@ class Home extends BaseController
         if (session()->get("loggedIn")) {
             $data = [
                 "title" => "Selamat datang di E-Promkm UNUSA",
-                "active" => "active",
+                "activeHome" => "active",
                 "dataQuery" => $this->stock->where("id_user", session()->get("id"))->orderBy("created_at", "desc")->find()
             ];
         } else {
             $data = [
                 "title" => "Selamat datang di E-Promkm UNUSA",
-                "active" => "active",
+                "activeHome" => "active",
                 "dataQuery" => $this->stock->orderBy("created_at", "desc")->findAll()
             ];
         }
@@ -38,13 +38,13 @@ class Home extends BaseController
             if ($this->request->getVar("search")) {
                 $data = [
                     "title" => "Selamat datang di E-Promkm UNUSA",
-                    "active" => "active",
+                    "activeHome" => "active",
                     "dataQuery" => $this->stock->where("id_user", session()->get("id"))->like("name", $this->request->getVar("search"))->orderBy("created_at", "desc")->find()
                 ];
             } else {
                 $data = [
                     "title" => "Selamat datang di E-Promkm UNUSA",
-                    "active" => "active",
+                    "activeHome" => "active",
                     "dataQuery" => $this->stock->where("id_user", session()->get("id"))->orderBy("created_at", "desc")->find()
                 ];
             }
@@ -52,13 +52,13 @@ class Home extends BaseController
             if ($this->request->getVar("search")) {
                 $data = [
                     "title" => "Selamat datang di E-Promkm UNUSA",
-                    "active" => "active",
+                    "activeHome" => "active",
                     "dataQuery" => $this->stock->like("name", $this->request->getVar("search"))->orderBy("created_at", "desc")->find()
                 ];
             } else {
                 $data = [
                     "title" => "Selamat datang di E-Promkm UNUSA",
-                    "active" => "active",
+                    "activeHome" => "active",
                     "dataQuery" => $this->stock->orderBy("created_at", "desc")->findAll()
                 ];
             }

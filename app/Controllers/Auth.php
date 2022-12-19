@@ -108,6 +108,7 @@ class Auth extends BaseController
         session()->remove("name");
         session()->remove("email");
         session()->remove("loggedIn");
+        session()->remove("active");
 
         return redirect()->to("/");
     }

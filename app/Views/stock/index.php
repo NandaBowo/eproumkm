@@ -32,8 +32,8 @@
                             <th scope="row"><?= $i++; ?></th>
                             <td class="text-center"><img src="/img/<?= $data["img"]; ?>" alt="Gambar tidak ada" width="72"></td>
                             <td><?= $data['name']; ?></td>
-                            <td><?= $data['harga_beli']; ?></td>
-                            <td><?= $data['harga_jual']; ?></td>
+                            <td>Rp <?= number_format($data['harga_beli']); ?></td>
+                            <td>Rp <?= number_format($data['harga_jual']); ?></td>
                             <td><?= $data['stock']; ?></td>
                             <!--  -->
                             <form action="/stock/form/edit/<?= $data["id"]; ?>" method="POST">
